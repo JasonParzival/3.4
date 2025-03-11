@@ -91,20 +91,35 @@ async function updating() {
     container.replaceChildren();
 
     let poleznost = filteredData.map(item => item['Насколько курс был полезен?']);
-    console.log("Значения в столбике полезность:")
-    console.log(poleznost)
 
-    let poleznostCounters = {} // заводим пустой словарик
-    poleznost.forEach(item => { // с помощью forEach, обходим элементы списка
-        // poleznostCounters[item] | 0 -- это хитрая фиговина 
-        // которая вернет значение poleznostCounters[item] если ключ item есть в словарике poleznostCounters
-        // и 0 если ключа item нет в словарике poleznostCounters
-        // ну а "+1" это чтобы увеличивать предыдущее значение ключа на 1, когда встречаем очередное значение
-        // то есть когда встретим первый раз то положится значение  1
+    let poleznostCounters = {}
+    poleznost.forEach(item => { 
         poleznostCounters[item] = (poleznostCounters[item] | 0) + 1
     })
     let poleznostStatsNode = document.querySelector("#poleznostStats .stats")
     poleznostStatsNode.innerText = JSON.stringify(poleznostCounters);
+
+    //-------------------------------------------------------
+
+    let Dovolnost = filteredData.map(item => item['Насколько курс был полезен?']);
+
+    let DovolnostCounters = {}
+    Dovolnost.forEach(item => { 
+        DovolnostCounters[item] = (DovolnostCounters[item] | 0) + 1
+    })
+    let DovolnostStatsNode = document.querySelector("#DovolnostStats .stats")
+    DovolnostStatsNode.innerText = JSON.stringify(DovolnostCounters);
+
+    //---------------------------------------------------------
+
+    let Udovletvoronost = filteredData.map(item => item['Насколько курс был полезен?']);
+
+    let UdovletvoronostCounters = {}
+    Udovletvoronost.forEach(item => { 
+        UdovletvoronostCounters[item] = (UdovletvoronostCounters[item] | 0) + 1
+    })
+    let UdovletvoronostStatsNode = document.querySelector("#UdovletvoronostStats .stats")
+    UdovletvoronostStatsNode.innerText = JSON.stringify(UdovletvoronostCounters);
 
     filteredData.forEach(item => {
         container.insertAdjacentHTML("beforeend", `
