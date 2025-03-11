@@ -101,7 +101,7 @@ async function updating() {
 
     //-------------------------------------------------------
 
-    let Dovolnost = filteredData.map(item => item['Насколько курс был полезен?']);
+    let Dovolnost = filteredData.map(item => item['Насколько доволен форматом обучения?']);
 
     let DovolnostCounters = {}
     Dovolnost.forEach(item => { 
@@ -112,7 +112,7 @@ async function updating() {
 
     //---------------------------------------------------------
 
-    let Udovletvoronost = filteredData.map(item => item['Насколько курс был полезен?']);
+    let Udovletvoronost = filteredData.map(item => item['Отметь, в какой мере ты удовлетворен курсом?']);
 
     let UdovletvoronostCounters = {}
     Udovletvoronost.forEach(item => { 
@@ -135,6 +135,7 @@ async function updating() {
 
 process()
 processFilter()
+updating()
 fillListPoleznost()
 fillListDovolnost()
 fillListUdovletvoronost()
